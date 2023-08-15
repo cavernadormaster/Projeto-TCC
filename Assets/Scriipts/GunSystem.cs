@@ -80,7 +80,10 @@ public class GunSystem : MonoBehaviour
         float y = UnityEngine.Random.Range(-spread, spread);
 
         //Calculate Direction with spread
-        Vector3 direction = fpsCam.transform.forward + new Vector3(x, y, 0);
+       
+        Transform t = fpsCam.transform;
+        t.Rotate(x, y, 0);
+        Vector3 direction = t.forward;
 
         //Raycast
         RaycastHit hit;
