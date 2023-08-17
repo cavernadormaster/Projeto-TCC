@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public CharacterController controler;
-    public float speed = 12f;
+    public Rigidbody controler;
+    public float speed;
     public float gravity = -9.81f;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -37,24 +37,22 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 20;
+            speed = 1000;
         }else if(Input.GetKey(KeyCode.LeftControl))
         {
-            speed = 5;
+            speed = 200;
         }
         else
         {
-            speed = 10;
+            speed = 400;
         }
 
-        controler.Move(move * speed * Time.deltaTime);
+       controler.velocity = ((transform.forward * z) + transform.right* x) * speed * Time.deltaTime ;
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-        velocity.y += gravity * Time.deltaTime;
-
-        controler.Move(velocity * Time.deltaTime);
+       
     }
 }
