@@ -37,14 +37,14 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 1000;
+            speed = 800;
         }else if(Input.GetKey(KeyCode.LeftControl))
         {
-            speed = 200;
+            speed = 100;
         }
         else
         {
-            speed = 400;
+            speed = 200;
         }
 
        controler.velocity = ((transform.forward * z) + transform.right* x) * speed * Time.deltaTime ;
