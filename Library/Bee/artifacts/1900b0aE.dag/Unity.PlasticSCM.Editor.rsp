@@ -112,6 +112,8 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:UNITY_POST_PROCESSING_STACK_V2
+-define:FISHNET
+-define:FISHNET_V3
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"D:/projetos de jogos/LostDungeonDev/Projeto_6-_Semestre/Library/PackageCache/com.unity.collab-proxy@2.0.3/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll"
@@ -335,6 +337,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+-analyzer:"Assets/FishNet/Plugins/CodeAnalysis/FishNet.CodeAnalysis.Analyzers.dll"
 "Library/PackageCache/com.unity.collab-proxy@2.0.3/Editor/PlasticSCM/ApplicationDataPath.cs"
 "Library/PackageCache/com.unity.collab-proxy@2.0.3/Editor/PlasticSCM/AssemblyInfo.cs"
 "Library/PackageCache/com.unity.collab-proxy@2.0.3/Editor/PlasticSCM/AssetMenu/AssetFilesFilterPatternsMenuBuilder.cs"

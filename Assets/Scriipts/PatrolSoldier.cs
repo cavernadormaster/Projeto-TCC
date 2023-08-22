@@ -7,6 +7,7 @@ public class PatrolSoldier : MonoBehaviour
 {
 
     NavMeshAgent agent;
+    public Transform player;
     public Transform[] waypoints;
     int waypointIndex;
     Vector3 target;
@@ -50,12 +51,17 @@ public class PatrolSoldier : MonoBehaviour
             case States.MORTE:
                 break;
             case States.ATIRANDO:
-                Debug.Log("Atirando");
+                ATIRANDO();
                 break;
             case States.ALERTA:
                 break;
         
         }
+    }
+
+    public void ATIRANDO()
+    {
+        this.gameObject.transform.LookAt(player);
     }
 
     void UpdateDestination()

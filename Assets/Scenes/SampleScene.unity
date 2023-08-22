@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e91a84367c9f2418f74cbc5ea0db6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 268522390}
   waypoints:
   - {fileID: 866050521}
   - {fileID: 1474853651}
