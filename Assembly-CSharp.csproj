@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scriipts\CameraShake.cs" />
+    <Compile Include="Assets\Scriipts\EnemyGunSystem.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\Scriipts\GunScript.cs" />
@@ -76,7 +77,6 @@
     <Compile Include="Assets\Scriipts\PlayerMovement.cs" />
     <Compile Include="Assets\FishNet\Upgrading\UpgradeFromMirrorMenu.cs" />
     <Compile Include="Assets\UnityTechnologies\EffectExamples\Shared\Scripts\GunAim.cs" />
-    <Compile Include="Assets\Scriipts\EnemyGunSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\FishNet\Plugins\CodeAnalysis\FishNet.CodeAnalysis.dll" />

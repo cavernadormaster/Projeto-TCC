@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 268522386}
   - component: {fileID: 268522392}
   - component: {fileID: 268522391}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 504322312}
   - component: {fileID: 504322311}
   - component: {fileID: 504322317}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PatrolSoldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ MonoBehaviour:
   attackPoint: {fileID: 1289516841}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   BulletHoleGrafic: {fileID: 1000011190285628, guid: beb3acff7ab73944fb8f470f24d74ed3, type: 3}
   mussleFlash: {fileID: 8006250463183232431}
   camShake: {fileID: 963194230}
@@ -1165,7 +1165,7 @@ MonoBehaviour:
   attackPoint: {fileID: 1880477558}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   BulletHoleGrafic: {fileID: 1000011190285628, guid: beb3acff7ab73944fb8f470f24d74ed3, type: 3}
   mussleFlash: {fileID: 198000012944515248, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
   anim: {fileID: 1341447122}

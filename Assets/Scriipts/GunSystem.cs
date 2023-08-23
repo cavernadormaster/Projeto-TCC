@@ -91,7 +91,7 @@ public class GunSystem : MonoBehaviour
         {
             Debug.Log(hit.collider.name);
 
-            if(hit.collider.CompareTag("Enemy"))
+            if(hit.collider.CompareTag("Inimigo"))
             {
                 //Here wahere the enemy get damage
                 // after "GetComponent" is a example of script and function
