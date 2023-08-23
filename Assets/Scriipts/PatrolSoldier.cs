@@ -9,6 +9,8 @@ public class PatrolSoldier : MonoBehaviour
     NavMeshAgent agent;
     public Transform player;
     public Transform[] waypoints;
+    public float followSpeed = 5.0f;
+    public GameObject Olhos;
     int waypointIndex;
     Vector3 target;
 
@@ -40,13 +42,10 @@ public class PatrolSoldier : MonoBehaviour
         switch (state)
         {
             case States.PATRULHANDO:
-                if (Vector3.Distance(transform.position, target) < 1)
-                {
-                    IterateWaypointIndex();
-                    UpdateDestination();
-                }
+                PATRULHANDO(); 
                 break;
             case States.PERSEGUINDO:
+                PERSEGUINDO();
                 break;
             case States.MORTE:
                 break;
@@ -59,9 +58,28 @@ public class PatrolSoldier : MonoBehaviour
         }
     }
 
+    public void PATRULHANDO()
+    {
+        if (Vector3.Distance(transform.position, target) < 1)
+        {
+            IterateWaypointIndex();
+            UpdateDestination();
+        }
+    }
+
+    public void PERSEGUINDO()
+    {
+        this.gameObject.transform.LookAt(player);
+        Vector3 directionToTarget = player.position - transform.position;
+        Vector3 desiredPosition = transform.position + directionToTarget.normalized * followSpeed * Time.deltaTime;
+        transform.position = desiredPosition;
+    }
+
     public void ATIRANDO()
     {
         this.gameObject.transform.LookAt(player);
+        Olhos.gameObject.transform.LookAt(player);
+        EnemyGunSystem.shooting = true;
     }
 
     void UpdateDestination()
@@ -92,6 +110,7 @@ public class PatrolSoldier : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             state = States.PATRULHANDO;
+            EnemyGunSystem.shooting = false;
         }
     }
 }
