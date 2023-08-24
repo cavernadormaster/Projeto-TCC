@@ -11,9 +11,10 @@ public class PatrolSoldier : MonoBehaviour
     public Transform[] waypoints;
     public float followSpeed = 5.0f;
     public GameObject Olhos;
+    float atencao;
+    public float increaseRate = 1.0f; 
     int waypointIndex;
     Vector3 target;
-    Vector3 PlayerTarget;
 
     public enum States
     { 
@@ -31,13 +32,12 @@ public class PatrolSoldier : MonoBehaviour
         state = States.PATRULHANDO;
         agent = GetComponent<NavMeshAgent>();
         UpdateDestination();
-        PlayerTarget = player.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(atencao);
         switch (state)
         {
             case States.PATRULHANDO:
@@ -52,13 +52,32 @@ public class PatrolSoldier : MonoBehaviour
                 ATIRANDO();
                 break;
             case States.ALERTA:
+                ALERTA();
                 break;
         
         }
     }
 
+    public void ALERTA()
+    {
+        atencao += increaseRate * Time.deltaTime;
+        if (Vector3.Distance(transform.position, target) < 1)
+        {
+            IterateWaypointIndex();
+            UpdateDestination();
+        }
+        if ( atencao >= 2)
+        {
+            state = States.ATIRANDO;
+        }
+    }
+
     public void PATRULHANDO()
     {
+        if (atencao > 0)
+        {
+            atencao -= increaseRate * Time.deltaTime;
+        }
         if (Vector3.Distance(transform.position, target) < 1)
         {
             IterateWaypointIndex();
@@ -73,7 +92,7 @@ public class PatrolSoldier : MonoBehaviour
         Vector3 desiredPosition = transform.position + directionToTarget.normalized * followSpeed * Time.deltaTime;
         transform.position = desiredPosition;
 
-        if (Vector3.Distance(transform.position, player.position) < 7)
+        if (Vector3.Distance(transform.position, player.position) <= 7.0f)
         {
             state = States.ATIRANDO;
         }
@@ -84,17 +103,12 @@ public class PatrolSoldier : MonoBehaviour
         this.gameObject.transform.LookAt(player);
         Olhos.gameObject.transform.LookAt(player);
         EnemyGunSystem.shooting = true;
-        if (Vector3.Distance(transform.position, player.position) > 7)
-        {
-            state = States.PERSEGUINDO;
-            EnemyGunSystem.shooting = false;
-        }
     }
 
     void UpdateDestination()
     {
-        target = waypoints[waypointIndex].position;
-        agent.SetDestination(target);
+       target = waypoints[waypointIndex].position;
+       agent.SetDestination(target);
     }
 
     void IterateWaypointIndex()
@@ -110,7 +124,7 @@ public class PatrolSoldier : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            state = States.PERSEGUINDO;
+            state = States.ALERTA;
         }
     }
 
