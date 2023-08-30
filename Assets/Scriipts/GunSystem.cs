@@ -10,6 +10,7 @@ public class GunSystem : MonoBehaviour
     public int magazineSize, bulletPerTap;
     public bool allowButtonHold;
     public int bulletsLeft, bulletsShot;
+    public static bool ArmaPrincipalAtiva;
 
     //bools
     bool shooting, readyToShoot, reloading;
@@ -47,8 +48,9 @@ public class GunSystem : MonoBehaviour
 
     private void MyInput()
     {
-        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
-        else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+       
+        if (allowButtonHold && ArmaPrincipalAtiva) shooting = Input.GetKey(KeyCode.Mouse0);
+        else if(ArmaPrincipalAtiva) shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
         if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading || bulletsLeft ==0)
         {

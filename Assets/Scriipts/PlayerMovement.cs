@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public float jumpHeight = 3f;
+    public static bool takeItem;
 
     private Vector3 velocity;
     private bool isGrounded;
@@ -53,6 +54,14 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
+        if(takeItem)
+        {
+            if (Input.GetKey(KeyCode.E))
+            {
+                TakeItem.PickItem();
+                takeItem = false;
+            }
+        }
        
     }
 }

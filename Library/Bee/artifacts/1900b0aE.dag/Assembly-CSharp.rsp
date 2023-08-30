@@ -369,6 +369,7 @@
 "Assets/Scriipts/MouseLook.cs"
 "Assets/Scriipts/PatrolSoldier.cs"
 "Assets/Scriipts/PlayerMovement.cs"
+"Assets/Scriipts/TakeItem.cs"
 "Assets/Scriipts/WaeponsSwitch.cs"
 "Assets/UnityTechnologies/EffectExamples/Shared/Scripts/DecalDestroyer.cs"
 "Assets/UnityTechnologies/EffectExamples/Shared/Scripts/ExtinguishableFire.cs"
