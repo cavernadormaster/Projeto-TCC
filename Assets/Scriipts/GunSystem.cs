@@ -9,8 +9,13 @@ public class GunSystem : MonoBehaviour
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
     public int magazineSize, bulletPerTap;
     public bool allowButtonHold;
-    public int bulletsLeft, bulletsShot;
+    public int bulletsLeft; 
+    public int bulletsShot;
     public static bool ArmaPrincipalAtiva;
+    public int bulletbag;
+    public int bulletbagCount;
+    public int bulletinMagazine;
+
 
     //bools
     bool shooting, readyToShoot, reloading;
@@ -32,10 +37,13 @@ public class GunSystem : MonoBehaviour
     private void Awake()
     {
         bulletsLeft = magazineSize;
+        bulletbag = bulletbagCount / magazineSize;
+        bulletinMagazine = magazineSize / bulletPerTap;
         readyToShoot = true;
     }
     private void Update()
     {
+        Debug.Log(bulletbag);
         MyInput();
         if(isMoving)
         {
@@ -49,10 +57,10 @@ public class GunSystem : MonoBehaviour
     private void MyInput()
     {
        
-        if (allowButtonHold && ArmaPrincipalAtiva) shooting = Input.GetKey(KeyCode.Mouse0);
-        else if(ArmaPrincipalAtiva) shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        if (allowButtonHold && ArmaPrincipalAtiva && bulletbag > 0) shooting = Input.GetKey(KeyCode.Mouse0);
+        else if(ArmaPrincipalAtiva && bulletbag > 0) shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading || bulletsLeft ==0)
+        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading && bulletbag > 0 || bulletsLeft ==0 && bulletbag > 0)
         {
             Reload();
         }
@@ -60,9 +68,11 @@ public class GunSystem : MonoBehaviour
         
 
         //Shoot
-        if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if(readyToShoot && shooting && !reloading && bulletsLeft > 0 && bulletinMagazine > 0)
         {
             bulletsShot = bulletPerTap;
+            bulletbagCount -= 30;
+            bulletinMagazine -= 1;
             shoot();
         }
         else
@@ -134,6 +144,15 @@ public class GunSystem : MonoBehaviour
     private void ReloadFinished()
     {
         bulletsLeft = magazineSize;
+        bulletbag = bulletbagCount / magazineSize;
+        if (bulletbag >= magazineSize / bulletPerTap)
+        {
+            bulletinMagazine = magazineSize / bulletPerTap;
+        }
+        else if(bulletbag < magazineSize / bulletPerTap)
+        {
+            bulletinMagazine = bulletbag - bulletinMagazine;
+        }
         reloading = false;
         anim.SetBool("Reloading", false);
     }
