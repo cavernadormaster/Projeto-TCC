@@ -13,8 +13,8 @@ public class GunSystem : MonoBehaviour
     public int bulletsShot;
     public static bool ArmaPrincipalAtiva;
     public int bulletbag;
-    public int bulletbagCount;
     public int bulletinMagazine;
+    public int MagazineSize;
     
 
     //bools
@@ -37,9 +37,6 @@ public class GunSystem : MonoBehaviour
     private void Awake()
     {
         bulletsLeft = magazineSize;
-        //bulletbag = bulletbagCount / magazineSize;
-        bulletinMagazine = magazineSize / bulletPerTap;
-        
         readyToShoot = true;
     }
     private void Update()
@@ -60,7 +57,7 @@ public class GunSystem : MonoBehaviour
         if (allowButtonHold && ArmaPrincipalAtiva && bulletinMagazine > 0) shooting = Input.GetKey(KeyCode.Mouse0);
         else if(ArmaPrincipalAtiva && bulletinMagazine > 0) shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading && bulletbag > 0 || bulletsLeft == 0 && bulletbag > 0)
+        if(Input.GetKeyDown(KeyCode.R) && !reloading && bulletbag > 0 && bulletinMagazine < MagazineSize || bulletsLeft == 0 && bulletbag > 0)
         {
             Reload();
         }
@@ -71,7 +68,6 @@ public class GunSystem : MonoBehaviour
         if(readyToShoot && shooting && !reloading && bulletsLeft > 0 && bulletinMagazine > 0)
         {
             bulletsShot = bulletPerTap;
-            bulletbagCount -= 30;
             bulletinMagazine -= 1;
             shoot();
         }
@@ -144,7 +140,7 @@ public class GunSystem : MonoBehaviour
     private void ReloadFinished()
     {
         bulletsLeft = magazineSize;
-        while(bulletbag > 0 && bulletinMagazine < 5)
+        while(bulletbag > 0 && bulletinMagazine < MagazineSize)
         {
           bulletbag --;
           bulletinMagazine ++;

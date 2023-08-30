@@ -686,8 +686,8 @@ MonoBehaviour:
   bulletsLeft: 0
   bulletsShot: 0
   bulletbag: 10
-  bulletbagCount: 450
   bulletinMagazine: 0
+  MagazineSize: 5
   fpsCam: {fileID: 963194227}
   attackPoint: {fileID: 1289516841}
   whatIsEnemy:
