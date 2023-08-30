@@ -685,8 +685,8 @@ MonoBehaviour:
   allowButtonHold: 0
   bulletsLeft: 0
   bulletsShot: 0
-  bulletbag: 0
-  bulletbagCount: 300
+  bulletbag: 10
+  bulletbagCount: 450
   bulletinMagazine: 0
   fpsCam: {fileID: 963194227}
   attackPoint: {fileID: 1289516841}
