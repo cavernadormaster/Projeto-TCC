@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Topo(Sneffels).unity
+- path: Assets/Scenes/Entrada(Menu).unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
