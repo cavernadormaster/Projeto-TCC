@@ -404,7 +404,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e91a84367c9f2418f74cbc5ea0db6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 268522390}
+  player:
+  - {fileID: 268522390}
+  - {fileID: 2088510319}
   waypoints:
   - {fileID: 866050521}
   - {fileID: 1474853651}
@@ -6563,9 +6565,9 @@ GameObject:
   - component: {fileID: 2088510316}
   - component: {fileID: 2088510315}
   - component: {fileID: 2088510314}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Remoto
-  m_TagString: Player
+  m_TagString: PlayerRemoto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

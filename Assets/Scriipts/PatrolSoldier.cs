@@ -7,7 +7,7 @@ public class PatrolSoldier : MonoBehaviour
 {
 
     NavMeshAgent agent;
-    public Transform player;
+    public Transform[] player;
     public Transform[] waypoints;
     public float followSpeed = 5.0f;
     public GameObject Olhos;
@@ -15,6 +15,7 @@ public class PatrolSoldier : MonoBehaviour
     public float increaseRate = 1.0f; 
     int waypointIndex;
     Vector3 target;
+    int playerId;
 
     public enum States
     { 
@@ -86,12 +87,12 @@ public class PatrolSoldier : MonoBehaviour
 
     public void PERSEGUINDO()
     {
-        this.gameObject.transform.LookAt(player);
-        Vector3 directionToTarget = player.position - transform.position;
+        this.gameObject.transform.LookAt(player[0]);
+        Vector3 directionToTarget = player[0].position - transform.position;
         Vector3 desiredPosition = transform.position + directionToTarget.normalized * followSpeed * Time.deltaTime;
         transform.position = desiredPosition;
 
-        if (Vector3.Distance(transform.position, player.position) <= 7.0f)
+        if (Vector3.Distance(transform.position, player[0].position) <= 7.0f)
         {
             state = States.ATIRANDO;
         }
@@ -99,9 +100,16 @@ public class PatrolSoldier : MonoBehaviour
 
     public void ATIRANDO()
     {
-        this.gameObject.transform.LookAt(player);
-        Olhos.gameObject.transform.LookAt(player);
-        EnemyGunSystem.shooting = true;
+        if (playerId == 1)
+        {
+            this.gameObject.transform.LookAt(player[0]);
+            Olhos.gameObject.transform.LookAt(player[0]);
+        }else if(playerId == 2)
+        {
+            this.gameObject.transform.LookAt(player[1]);
+            Olhos.gameObject.transform.LookAt(player[1]);
+        }
+            EnemyGunSystem.shooting = true;
     }
 
     void UpdateDestination()
@@ -124,6 +132,11 @@ public class PatrolSoldier : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             state = States.ALERTA;
+            playerId = 1;
+        }else if(other.CompareTag("PlayerRemoto"))
+        {
+            state = States.ALERTA;
+            playerId = 2;
         }
     }
 
@@ -133,6 +146,7 @@ public class PatrolSoldier : MonoBehaviour
         {
             state = States.PATRULHANDO;
             EnemyGunSystem.shooting = false;
+            playerId = 0;
         }
     }
 }
