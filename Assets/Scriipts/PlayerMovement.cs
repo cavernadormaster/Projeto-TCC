@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 velocity;
     private bool isGrounded;
+
+
+    private void Start()
+    {
+        StartCoroutine(EnviarDados());
+    }
 
     private void Update()
     {
@@ -63,5 +73,28 @@ public class PlayerMovement : MonoBehaviour
             }
         }
        
+    }
+
+    IEnumerator EnviarDados()
+    {
+        while (true)
+        {
+            float[] trsfrm = new float[] { transform.position.x, transform.position.y, transform.position.z, transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w };
+            byte[] dados = FloatArrayToByteArray(trsfrm);
+            IPEndPoint ipep = new IPEndPoint(MltJogador.remotoIPAdress, MltJogador.PORTA);
+            MltJogador.udpClient.Send(dados, dados.Length, ipep);
+            yield return new WaitForSeconds(0.01f);
+
+        }
+    }
+    byte[] FloatArrayToByteArray(float[] f)
+    {
+        byte[] b = new byte[28];
+        for (int i = 0; i < f.Length; i += 1)
+        {
+            byte[] parcial = BitConverter.GetBytes(f[i]);
+            Array.Copy(parcial, 0, b, i * 4, 4);
+        }
+        return b;
     }
 }
