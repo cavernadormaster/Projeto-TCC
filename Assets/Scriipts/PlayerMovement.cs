@@ -24,16 +24,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(EnviarDados());
+
     }
 
     private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(isGrounded && velocity.y < 0)
+        if(!isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -200f;
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -59,8 +59,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
        controler.velocity = ((transform.forward * z) + transform.right* x) * speed * Time.deltaTime ;
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(Input.GetKey(KeyCode.Space) && isGrounded)
         {
+            Debug.Log("Jump");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
@@ -75,26 +76,5 @@ public class PlayerMovement : MonoBehaviour
        
     }
 
-    IEnumerator EnviarDados()
-    {
-        while (true)
-        {
-            float[] trsfrm = new float[] { transform.position.x, transform.position.y, transform.position.z, transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w };
-            byte[] dados = FloatArrayToByteArray(trsfrm);
-            IPEndPoint ipep = new IPEndPoint(MltJogador.remotoIPAdress, MltJogador.PORTA);
-            MltJogador.udpClient.Send(dados, dados.Length, ipep);
-            yield return new WaitForSeconds(0.01f);
-
-        }
-    }
-    byte[] FloatArrayToByteArray(float[] f)
-    {
-        byte[] b = new byte[28];
-        for (int i = 0; i < f.Length; i += 1)
-        {
-            byte[] parcial = BitConverter.GetBytes(f[i]);
-            Array.Copy(parcial, 0, b, i * 4, 4);
-        }
-        return b;
-    }
+   
 }
