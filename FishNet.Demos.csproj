@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{6FD3DF27-B6E2-ADE0-36AB-B855C8BC6700}</ProjectGuid>
+    <ProjectGuid>{2D998458-FACD-724F-565C-EB4B1F00316F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>FishNet.Demos</AssemblyName>
@@ -54,7 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="C:\Users\ra00297356\Documents\GitHub\Projeto_6-_Semestre\Assets\FishNet\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="C:\Users\ra00297356\Documents\GitHub\Projeto-TCC\Assets\FishNet\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\FishNet\Demos\Prediction V1\Rigidbody\Scripts\RigidbodyPrediction.cs" />
@@ -753,11 +753,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="FishNet.Runtime.csproj">
-      <Project>{CF20B169-F101-5EF3-FF52-46A4EDA0DB40}</Project>
+      <Project>{2F6B6BA6-99B1-8A50-28F2-0E304D19F61F}</Project>
       <Name>FishNet.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="GameKit.Utilities.csproj">
-      <Project>{46C69402-D55E-B86E-B492-14F8C08D60DD}</Project>
+      <Project>{4996AB1B-8FEC-7F03-C495-9EA2B752A2B5}</Project>
       <Name>GameKit.Utilities</Name>
     </ProjectReference>
   </ItemGroup>

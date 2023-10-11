@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public float jumpHeight = 3f;
     public static bool takeItem;
+    public CharacterController controller;
 
     private Vector3 velocity;
     private bool isGrounded;
@@ -31,12 +32,14 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(!isGrounded && velocity.y < 0)
+        if(isGrounded && velocity.y < 0)
         {
-            velocity.y = -200f;
+            velocity.y = -2f;
         }
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
         if(x > 0f && z > 0 || x > 0 || z > 0 || x < 0f && z < 0 || x < 0 || z < 0)
         {
             GunSystem.isMoving = true;
@@ -48,24 +51,29 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 800;
+            speed = 20;
         }else if(Input.GetKey(KeyCode.LeftControl))
         {
-            speed = 100;
+            speed = 5;
         }
         else
         {
-            speed = 200;
+            speed = 12;
         }
 
-       controler.velocity = ((transform.forward * z) + transform.right* x) * speed * Time.deltaTime ;
+        controller.Move(move * speed * Time.deltaTime);
+
         if(Input.GetKey(KeyCode.Space) && isGrounded)
         {
             Debug.Log("Jump");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-        if(takeItem)
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
+
+        if (takeItem)
         {
             if (Input.GetKey(KeyCode.E))
             {

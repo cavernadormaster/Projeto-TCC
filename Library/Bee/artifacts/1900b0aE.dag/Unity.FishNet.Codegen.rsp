@@ -328,7 +328,7 @@
 -r:"C:/Users/ra00297356/Desktop/Nova pasta/Unity 2021.3.24f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Transactions.dll"
 -r:"C:/Users/ra00297356/Desktop/Nova pasta/Unity 2021.3.24f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.dll"
 -r:"C:/Users/ra00297356/Desktop/Nova pasta/Unity 2021.3.24f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.Linq.dll"
--r:"C:/Users/ra00297356/Documents/GitHub/Projeto_6-_Semestre/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+-r:"C:/Users/ra00297356/Documents/GitHub/Projeto-TCC/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/FishNet.Codegen.Cecil.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/FishNet.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/GameKit.Utilities.ref.dll"
