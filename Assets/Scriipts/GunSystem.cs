@@ -34,10 +34,14 @@ public class GunSystem : MonoBehaviour
     public static bool isMoving;
     public AudioSource fireAudio;
     public AudioSource reloadAudio;
+
+    public GameObject[] ImageButtons; // [0] = ReloadImageButton;
+
     private void Awake()
     {
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        ArmaPrincipalAtiva = false;
     }
     private void Update()
     {
@@ -57,8 +61,15 @@ public class GunSystem : MonoBehaviour
         if (allowButtonHold && ArmaPrincipalAtiva && bulletinMagazine > 0) shooting = Input.GetKey(KeyCode.Mouse0);
         else if(ArmaPrincipalAtiva && bulletinMagazine > 0) shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
-        if(Input.GetKeyDown(KeyCode.R) && !reloading && bulletbag > 0 && bulletinMagazine < MagazineSize || bulletsLeft == 0 && bulletbag > 0)
+        if(!reloading && bulletbag > 0 && bulletinMagazine < MagazineSize && ArmaPrincipalAtiva || bulletsLeft == 0 && bulletbag > 0 && ArmaPrincipalAtiva)
         {
+            ImageButtons[0].SetActive(true);
+        }
+
+        if(Input.GetKeyDown(KeyCode.R) && !reloading && bulletbag > 0 && bulletinMagazine < MagazineSize && ArmaPrincipalAtiva ||
+            bulletsLeft == 0 && bulletbag > 0 && ArmaPrincipalAtiva)
+        {
+            ImageButtons[0].SetActive(false);
             Reload();
         }
 
@@ -135,6 +146,7 @@ public class GunSystem : MonoBehaviour
         reloadAudio.Play();
         anim.SetBool("Reloading", true);
         Invoke("ReloadFinished", reloadTime);
+        
     }
 
     private void ReloadFinished()
