@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B1CA2981-774F-2E73-D731-83440E7CD45E}</ProjectGuid>
+    <ProjectGuid>{46741081-DA35-FA18-618D-E16DBE2EE995}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>FishNet.Codegen.Cecil</AssemblyName>
@@ -54,7 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="C:\Users\ra00297356\Documents\GitHub\Projeto-TCC\Assets\FishNet\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="C:\Users\ra00297356\Documents\GitHub\Projeto_6-_Semestre\Assets\FishNet\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\FishNet\CodeGenerating\cecil-0.11.4\Mono.Cecil\TypeSystem.cs" />

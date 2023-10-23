@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{38E2076C-D6EE-7110-764A-2DBBC024B06B}</ProjectGuid>
+    <ProjectGuid>{83C97937-B658-9AE1-5A5B-A70A002D3181}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -54,7 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="C:\Users\ra00297356\Documents\GitHub\Projeto-TCC\Assets\FishNet\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="C:\Users\ra00297356\Documents\GitHub\Projeto_6-_Semestre\Assets\FishNet\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\UnityTechnologies\EffectExamples\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
@@ -814,27 +814,27 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{E297C633-24B6-09C7-CEF7-8B2B049C824B}</Project>
+      <Project>{AA80CB2E-A7E7-048D-EC4F-2AA944093215}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="FishNet.Codegen.Cecil.csproj">
-      <Project>{B1CA2981-774F-2E73-D731-83440E7CD45E}</Project>
+      <Project>{46741081-DA35-FA18-618D-E16DBE2EE995}</Project>
       <Name>FishNet.Codegen.Cecil</Name>
     </ProjectReference>
     <ProjectReference Include="GameKit.Dependencies.csproj">
-      <Project>{2B337769-EFB0-31D1-6803-289F03088DF1}</Project>
+      <Project>{02E362F2-5720-B30F-BA72-0BD767EB1AA3}</Project>
       <Name>GameKit.Dependencies</Name>
     </ProjectReference>
     <ProjectReference Include="FishNet.Demos.csproj">
-      <Project>{2D998458-FACD-724F-565C-EB4B1F00316F}</Project>
+      <Project>{6FD3DF27-B6E2-ADE0-36AB-B855C8BC6700}</Project>
       <Name>FishNet.Demos</Name>
     </ProjectReference>
     <ProjectReference Include="FishNet.Runtime.csproj">
-      <Project>{2F6B6BA6-99B1-8A50-28F2-0E304D19F61F}</Project>
+      <Project>{CF20B169-F101-5EF3-FF52-46A4EDA0DB40}</Project>
       <Name>FishNet.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="GameKit.Utilities.csproj">
-      <Project>{4996AB1B-8FEC-7F03-C495-9EA2B752A2B5}</Project>
+      <Project>{46C69402-D55E-B86E-B492-14F8C08D60DD}</Project>
       <Name>GameKit.Utilities</Name>
     </ProjectReference>
   </ItemGroup>

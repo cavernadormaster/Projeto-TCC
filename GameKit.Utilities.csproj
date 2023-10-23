@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4996AB1B-8FEC-7F03-C495-9EA2B752A2B5}</ProjectGuid>
+    <ProjectGuid>{46C69402-D55E-B86E-B492-14F8C08D60DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>GameKit.Utilities</AssemblyName>
@@ -54,7 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="C:\Users\ra00297356\Documents\GitHub\Projeto-TCC\Assets\FishNet\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="C:\Users\ra00297356\Documents\GitHub\Projeto_6-_Semestre\Assets\FishNet\Plugins\CodeAnalysis\FishNet.CodeAnalysis.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\FishNet\Plugins\GameKit\Utilities\Quaternions.cs" />
@@ -775,7 +775,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="GameKit.Dependencies.csproj">
-      <Project>{2B337769-EFB0-31D1-6803-289F03088DF1}</Project>
+      <Project>{02E362F2-5720-B30F-BA72-0BD767EB1AA3}</Project>
       <Name>GameKit.Dependencies</Name>
     </ProjectReference>
   </ItemGroup>
