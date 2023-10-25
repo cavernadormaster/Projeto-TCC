@@ -104,6 +104,12 @@ public class PatrolSoldier : MonoBehaviour
         {
             this.gameObject.transform.LookAt(player[0]);
             Olhos.gameObject.transform.LookAt(player[0]);
+            if(!UIController.isAlive)
+            {
+                state = States.PATRULHANDO;
+                EnemyGunSystem.shooting = false;
+
+            }
         }else if(playerId == 2)
         {
             this.gameObject.transform.LookAt(player[1]);
@@ -129,14 +135,14 @@ public class PatrolSoldier : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (UIController.isAlive)
         {
-            state = States.ALERTA;
-            playerId = 1;
-        }else if(other.CompareTag("PlayerRemoto"))
-        {
-            state = States.ALERTA;
-            playerId = 2;
+            if (other.CompareTag("Player"))
+            {
+                state = States.ALERTA;
+                playerId = 1;
+            }
+            
         }
     }
 

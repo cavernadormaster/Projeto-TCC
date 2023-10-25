@@ -12,6 +12,27 @@ public class UIController : MonoBehaviour
     public Gradient gradient;
     public Image fill;
 
+    #region Canvas Death Itens
+    //Itens que estão no Canvas de morte do jogador
+    public GameObject respawnButton;
+    #endregion
+
+    #region Transform de Locais
+    // transform de locais onde o jogador pode se transportar
+    public GameObject[] Respawnpoint;
+    #endregion
+
+    #region Variaveis Internas
+    // Variaveis que são lidas dentro do UIController Script
+    int ordemDosRespawnPoints = 0; // define qual transform de respawnpoint está atualmente
+    bool respawnn;
+    #endregion
+
+    #region Objetos na cena
+    // objetos que estejam na cena e possam interagir dentro do script
+    public GameObject player;
+    #endregion
+
     void Start()
     {
         isAlive = true;
@@ -22,14 +43,30 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(CurrentHealth <= 0)
+        // tirar essa opção
+        if(Input.GetKey(KeyCode.L))
+        {
+            CurrentHealth = 0;
+        }
+
+        if(respawnn)
+        {
+            player.transform.position = Respawnpoint[ordemDosRespawnPoints].transform.position;
+            respawnn = false;
+        }
+
+        if (CurrentHealth <= 0)
         {
             isAlive = false;
-            Debug.Log("YOU ARE DEAD");
+            respawnButton.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
-            
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            isAlive = true;
         }
     }
 
@@ -52,5 +89,13 @@ public class UIController : MonoBehaviour
         slider.maxValue = health;
         slider.value = health;
         fill.color = gradient.Evaluate(1f);
+    }
+
+    public void Respawn()
+    {
+        CurrentHealth = MaxHealth;
+        SetMaxHealth(MaxHealth);
+        Debug.Log("Respawnning");
+        respawnn = true;
     }
 }

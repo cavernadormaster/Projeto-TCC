@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (UIController.isAlive)
             {
-                Debug.Log("LIVE");
                 Vector3 move = transform.right * x + transform.forward * z;
                 controller.Move(move * speed * Time.deltaTime);
             }
