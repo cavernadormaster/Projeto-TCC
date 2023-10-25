@@ -43,17 +43,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // tirar essa opção
-        if(Input.GetKey(KeyCode.L))
-        {
-            CurrentHealth = 0;
-        }
-
-        if(respawnn)
-        {
-            player.transform.position = Respawnpoint[ordemDosRespawnPoints].transform.position;
-            respawnn = false;
-        }
+        
 
         if (CurrentHealth <= 0)
         {
@@ -93,9 +83,14 @@ public class UIController : MonoBehaviour
 
     public void Respawn()
     {
+        CharacterController temp = GetComponent<CharacterController>();
+        temp.enabled = false;
+        player.transform.position = Respawnpoint[ordemDosRespawnPoints].transform.position;
         CurrentHealth = MaxHealth;
         SetMaxHealth(MaxHealth);
-        Debug.Log("Respawnning");
-        respawnn = true;
+        respawnButton.SetActive(false);
+        temp.enabled = true;
     }
+
+    
 }

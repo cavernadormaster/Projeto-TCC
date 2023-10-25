@@ -9,7 +9,6 @@ using System.Text;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public Rigidbody controler;
     public float speed;
     public float gravity = -9.81f;
     public Transform groundCheck;
