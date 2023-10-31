@@ -112,9 +112,8 @@ public class GunSystem : MonoBehaviour
 
             if(hit.collider.CompareTag("Inimigo"))
             {
-                //Here wahere the enemy get damage
-                // after "GetComponent" is a example of script and function
-                  //rayhit.collider.GetComponent<ShootingAi>().TakeDamage(damage);
+                
+                hit.collider.GetComponent<UIPatrolSoldier>().TakeDamage(damage);
                 Debug.Log("GetIT");
             }
         }
