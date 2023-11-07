@@ -6,7 +6,6 @@ public class TakeItem : MonoBehaviour
 {
     public static GameObject Gun;
     public static GameObject mao;
-    public static Transform mao1;
     public static GameObject thisGameobject1;
     public GameObject player;
     public GameObject BUttonImage;
@@ -17,7 +16,6 @@ public class TakeItem : MonoBehaviour
     {
         Gun = GameObject.Find(GunName);
         mao = GameObject.Find(maoName);
-        mao1 = player.transform.Find(maoName);
         thisGameobject1 = GameObject.Find(thisGameobject);
     }
 
@@ -32,8 +30,8 @@ public class TakeItem : MonoBehaviour
 
     public static void PickItem()
     {
-        Gun.transform.parent = mao.transform;
         Gun.transform.position = mao.transform.position;
+        Gun.transform.parent = mao.transform;
         GunSystem.ArmaPrincipalAtiva = true;
         Destroy(thisGameobject1);
     }
